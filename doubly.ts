@@ -34,7 +34,7 @@ class Doubly{
                  current =  current.next;
             }
             current.next = newData;
-            current.prev = current
+            newData.prev = current;
         }
     }
 }
