@@ -94,7 +94,10 @@ class Doubly{
     remove(index:number){
         const prevNode = this.traverseToindex(index-1);
         const nodeTodelete = prevNode?.next
+    }
 
+    reverse(){
+       
     }
 
 }
