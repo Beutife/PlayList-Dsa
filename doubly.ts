@@ -6,17 +6,18 @@ class Nodez{
     constructor(data : number, prev : Nodez | null){
         this.data = data;
         this.next = null;
-        this.prev = prev 
+        this.prev = prev
     }
 }
 
 class Doubly{
     head : Nodez | null;
     prev : Nodez | null;
+    next : Nodez | null
 
-    constructor(){
-        this.head = null
-        //this.prev = null
+    constructor(head : Nodez | null){
+        this.head = head;
+        this.prev = null;
     }
 
     insertAtEnd(data : number){
@@ -97,14 +98,26 @@ class Doubly{
     }
 
     reverse(){
-       
+
+        let current = this.head;
+        let tmp = null;
+
+       while(current != null){
+            //let current = this.head;
+            current.prev = current.next;    
+            current.next = tmp;
+            current.prev = tmp
+       }
+       if (tmp !== null) {
+        this.head = tmp;
+    }
     }
 
 }
 
-const testNode =  new Nodez(12,null);
-console.log(testNode);
-const doubNode = new Doubly();
+// const testNode =  new Nodez(12,null);
+// console.log(testNode);
+const doubNode = new Doubly(null);
 console.log(doubNode.head)
 console.log(doubNode.insertAtBeginning(15))
 
